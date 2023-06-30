@@ -147,6 +147,7 @@ jobs:
           command: kv:key get --namespace-id=${{ env.tfstate_kv }} terraform.tfstate > ./tf/terraform.tfstate
           postCommands: |
             echo "*** post commands ***"
+            echo "export NO_D1_WARNING=true"
             chmod 777 ./tf/terraform.tfstate
             echo "******"
           apiToken: ${{ secrets.CF_API_TOKEN }}
